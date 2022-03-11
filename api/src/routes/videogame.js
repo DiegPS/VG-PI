@@ -59,7 +59,7 @@ router.get("/:videogameId", async (req, res) => {
     };
     res.status(200).json(gameDetails);
   } else {
-    let videogame = await Videogame.findByPk(videogameId, {
+    let db = await Videogame.findByPk(videogameId, {
       include: [
         {
           model: Genre,
@@ -77,8 +77,7 @@ router.get("/:videogameId", async (req, res) => {
         },
       ],
     });
-
-    res.status(200).json(videogame);
+    res.status(200).json(db);
   }
 });
 module.exports = router;

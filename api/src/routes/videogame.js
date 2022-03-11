@@ -63,11 +63,17 @@ router.get("/:videogameId", async (req, res) => {
       include: [
         {
           model: Genre,
-          through: { attributes: [name] },
+          attributes: ["name"],
+          through: {
+            attributes: [],
+          },
         },
         {
           model: Platform,
-          through: { attributes: [name] },
+          attributes: ["name"],
+          through: {
+            attributes: [],
+          },
         },
       ],
     });

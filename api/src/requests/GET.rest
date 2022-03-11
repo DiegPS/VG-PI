@@ -4,3 +4,5 @@ GET http://localhost:3001/genres HTTP/1.1
 GET http://localhost:3001/platforms HTTP/1.1
 ###
 GET http://localhost:3001/videogames HTTP/1.1
+###
+GET http://localhost:3001/videogame/3498 HTTP/1.1

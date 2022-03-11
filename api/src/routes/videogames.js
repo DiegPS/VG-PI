@@ -7,6 +7,14 @@ router.get("/", async (req, res) => {
   const { name } = req.query;
   let api = await getGames(GAMES_ALL_ENDPOINT);
   let db = await Videogame.findAll({
+    attributes: [
+      "id",
+      "name",
+      "background_image",
+      "rating",
+      "released",
+      "released",
+    ],
     include: [
       {
         model: Genre,
@@ -24,7 +32,8 @@ router.get("/", async (req, res) => {
       },
     ],
   });
-  const apiDb = api.concat(db);
+  const apiDb = [...api, ...db];
+
   if (name) {
     let gameQuery = apiDb.filter((elem) =>
       elem.name.toLowerCase().includes(name.toLowerCase())

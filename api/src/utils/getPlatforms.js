@@ -9,7 +9,7 @@ let getPlatforms = (url, datos = []) => {
           datos.push({
             id: id,
             name: name,
-            image: image_background,
+            image_background,
           });
         });
         url = response.data.next;
